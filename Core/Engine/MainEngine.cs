@@ -64,6 +64,8 @@ namespace Engine
             get; protected set;
         }
 
+        private static InputBinding consoleKey = new InputBinding("engine_console","Open Console","Debug",new BoundKey() { Key = Keys.OemTilde});
+
         internal static Queue<CommandBinding> commands = new Queue<CommandBinding>();
         internal static bool commandsDirty = true;
         public static FixedList<Vector3> DebugDrawPositions = new FixedList<Vector3>(512,true);
@@ -554,7 +556,7 @@ namespace Engine
 
                 if (PauseWhenMenusOpen)
                 {
-                    if (KeyboardManager.HasBeenPressed(Keys.OemTilde))
+                    if (consoleKey.HasBeenPressed())
                     {
                         IsPaused = !IsPaused;
                         IsConsoleOpen = IsPaused;
@@ -563,7 +565,7 @@ namespace Engine
                 }
                 else
                 {
-                    if (KeyboardManager.HasBeenPressed(Keys.OemTilde))
+                    if (consoleKey.HasBeenPressed())
                     {
                         IsConsoleOpen = !IsConsoleOpen;
                     }
