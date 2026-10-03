@@ -157,6 +157,10 @@ namespace Engine
         });
         public readonly static CommandBinding cMapchange = new CommandBinding("map", (string[] arg) =>
         {
+            if (arg == null) return;
+            if (arg.Length == 0) return;
+            if (string.IsNullOrEmpty(arg[0])) return;
+
             SaveManager.ClearSessionMapStates();
             if (arg[0] == "unload")
             {
