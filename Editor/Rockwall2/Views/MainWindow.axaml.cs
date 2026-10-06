@@ -139,6 +139,14 @@ public partial class MainWindow : Window
     {
         MapTools.LightmapRes = 32;
     }
+    private void MapExecBuild(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        MapTools.BuildMap(false);
+    }
+    private void MapExecBuildDebug(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        MapTools.BuildMap(true);
+    }
 
     private async void MapPrefsOpen(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {

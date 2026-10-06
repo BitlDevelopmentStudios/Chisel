@@ -55,6 +55,10 @@
 								<MenuItem Header="Map Editor Preferences" Click="MapPrefsOpen">
 								</MenuItem>
 							</MenuItem>
+							<MenuItem Header="Build">
+							<MenuItem Header="Build Map" x:Name="MapBuild" Click="MapExecBuild"/>
+							<MenuItem Header="Build and Debug Map" x:Name="MapBuildDebug" Click="MapExecBuildDebug"/>
+							</MenuItem>
 						</Menu>
 
 						<controls:MapEditor Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="mapEditor"/>
