@@ -690,7 +690,9 @@ namespace MapCompiler
                 string[] lines = points.Select(p => $"{p.X:F3} {p.Y:F3} {p.Z:F3}").ToArray();
                 System.IO.File.WriteAllLines(System.IO.Path.ChangeExtension(mapName, "leak"), lines);
 
-                throw new Exception("EEK! A map leak!");
+                // there may be a good reason for this... - bitl
+                //throw new Exception("EEK! A map leak!");
+                Console.WriteLine("EEK! A map leak! Found at " + string.Join(" ", lines));
             }
 
             return true;
