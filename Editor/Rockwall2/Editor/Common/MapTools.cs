@@ -521,6 +521,15 @@ public static class MapTools
             return;
         }
 
+        if (Toolbelt.AutoSaveBeforeCompile)
+        {
+            if (!string.IsNullOrEmpty(ActivePath) && 
+                File.Exists(ActivePath))
+            {
+                SaveMap();
+            }
+        }
+
         LeakPoints = null;
 
         ProcessStartInfo startInfo = new ProcessStartInfo();

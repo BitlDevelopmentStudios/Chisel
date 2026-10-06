@@ -21,6 +21,7 @@ public static class EditorPrefs
         public bool FlipScrollShift;
         public (int slot, string? id)[] Hotbar;
         public bool EnableSFX;
+        public bool AutoSaveBeforeCompile;
     }
 
     public static void LoadEditorPrefs()
@@ -36,6 +37,7 @@ public static class EditorPrefs
         Toolbelt.FlipSelectShift = prefs.FlipSelectShift;
         Toolbelt.FlipScrollShift = prefs.FlipScrollShift;
         EnableSFX = prefs.EnableSFX;
+        Toolbelt.AutoSaveBeforeCompile = prefs.AutoSaveBeforeCompile;
 
         for (int i = 0; i < prefs.Hotbar.Length; i++)
         {
@@ -48,7 +50,8 @@ public static class EditorPrefs
         {
             FlipSelectShift = Toolbelt.FlipSelectShift,
             FlipScrollShift = Toolbelt.FlipScrollShift,
-            EnableSFX = EnableSFX
+            EnableSFX = EnableSFX,
+            AutoSaveBeforeCompile = Toolbelt.AutoSaveBeforeCompile,
         };
         prefs.Hotbar = new (int slot, string? id)[9];
 

@@ -37,6 +37,11 @@
 					<Label VerticalAlignment="Center">Flip Shift/Alt Drag Behavior</Label>
 					<CheckBox x:Name="scrollFlip"/>
 				</StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="32"
+							ToolTip.Tip="By default, the map will automatically save when building the map. Unchecking this option will disable this behavior.">
+          <Label VerticalAlignment="Center">Autosave Map FIle Before Compiling</Label>
+          <CheckBox x:Name="autoSave"/>
+        </StackPanel>
 
 				<Separator/>
 				<Label>Hotbar Preferences</Label>

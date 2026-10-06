@@ -34,6 +34,7 @@ public static class Toolbelt
 
     public static bool FlipSelectShift = false;
     public static bool FlipScrollShift = false;
+    public static bool AutoSaveBeforeCompile = true;
 
     public static Tool BrushTool = new BrushTool();
     public static Tool ClipTool = new ClippingTool();

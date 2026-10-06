@@ -19,6 +19,7 @@ public partial class MapPrefs : Window
 
         selectionFlip.IsChecked = Toolbelt.FlipSelectShift;
         scrollFlip.IsChecked = Toolbelt.FlipScrollShift;
+        autoSave.IsChecked = Toolbelt.AutoSaveBeforeCompile;
 
         var items = Hotbar.AllAvailable.Select(h => h.Id).ToList();
         items.Insert(0, "none");
@@ -52,6 +53,7 @@ public partial class MapPrefs : Window
     {
         Toolbelt.FlipSelectShift = selectionFlip.IsChecked ?? false;
         Toolbelt.FlipScrollShift = scrollFlip.IsChecked ?? false;
+        Toolbelt.AutoSaveBeforeCompile = autoSave.IsChecked ?? false;
 
         Hotbar.AssignSlot(1, (key1.SelectedItem as string) != "none" ? (key1.SelectedItem as string) : null);
         Hotbar.AssignSlot(2, (key2.SelectedItem as string) != "none" ? (key2.SelectedItem as string) : null);
