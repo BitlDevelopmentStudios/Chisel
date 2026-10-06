@@ -57,8 +57,10 @@
             <ImageBrush Source="/Assets/Decor/header.png" TileMode="Tile" Stretch="Fill">
             </ImageBrush>
           </Panel.Background>
-          <StackPanel Margin="10" VerticalAlignment="Center">
+          <StackPanel Margin="10" VerticalAlignment="Center" Orientation="Horizontal" Spacing="8">
             <Button Click="NewConfig">Add New</Button>
+            <Button Click="M_Edit">Edit</Button>
+            <Button Click="M_Delete">Delete</Button>
           </StackPanel>
         </Panel>
         
