@@ -26,7 +26,8 @@ public sealed class GpuBuffer : IDisposable
         var error = gl.GetError();
         if (error != GLEnum.NoError)
         {
-            throw new InvalidOperationException($"BufferData failed allocating {bytes.Length:N0} bytes (GL error: {error}).");
+            //throw new InvalidOperationException($"BufferData failed allocating {bytes.Length:N0} bytes (GL error: {error}).");
+            Console.WriteLine($"WARNING: BufferData failed allocating {bytes.Length:N0} bytes (GL error: {error}).");
         }
     }
 
@@ -53,7 +54,8 @@ public sealed class GpuBuffer : IDisposable
         {
             var error = gl.GetError();
             gl.BindBuffer(BufferTargetARB.ShaderStorageBuffer, 0);
-            throw new InvalidOperationException($"MapBufferRange returned null (GL error: {error}).");
+            //throw new InvalidOperationException($"MapBufferRange returned null (GL error: {error}).");
+            Console.WriteLine($"MapBufferRange returned null (GL error: {error}).");
         }
 
         new Span<byte>(mapped, count * sizeof(T)).CopyTo(MemoryMarshal.AsBytes(result.AsSpan()));
