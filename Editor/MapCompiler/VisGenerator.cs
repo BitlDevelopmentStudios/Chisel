@@ -692,7 +692,7 @@ namespace MapCompiler
 
                 // there may be a good reason for this... - bitl
                 //throw new Exception("EEK! A map leak!");
-                Console.WriteLine("EEK! A map leak! Found at " + string.Join(" ", lines));
+                Console.WriteLine($"WARNING: EEK! A map leak! Found at {string.Join(" ", lines)}");
             }
 
             return true;
