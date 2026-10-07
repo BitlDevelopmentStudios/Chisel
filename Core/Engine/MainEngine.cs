@@ -303,7 +303,7 @@ namespace Engine
             }
         });
         public readonly static CVarInt DeveloperMode = new CVarInt("developer",0);
-        public readonly static CVarInt MaxFPS = new CVarInt("max_fps", 250);
+        public readonly static CVarInt MaxFPS = new CVarInt("max_fps", 300);
         #endregion
 
         internal SplashScreen? splashScreen;
