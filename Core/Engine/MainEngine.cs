@@ -302,7 +302,11 @@ namespace Engine
                 Instance.SaveMenu.Initialize(true);
             }
         });
+#if DEBUG
+        public readonly static CVarInt DeveloperMode = new CVarInt("developer", 2);
+#else
         public readonly static CVarInt DeveloperMode = new CVarInt("developer",0);
+#endif
         public readonly static CVarInt MaxFPS = new CVarInt("max_fps", 300);
         #endregion
 
