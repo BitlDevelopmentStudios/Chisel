@@ -25,7 +25,7 @@ namespace Engine
 {
     public static class EntityManager
     {
-        public const int MaxEntities = 16384;
+        public const int MaxEntities = 65536;
         public static FixedList<WorldEntity> entities = new FixedList<WorldEntity>(MaxEntities);
 
         public static int CurrentFrame = 0;
