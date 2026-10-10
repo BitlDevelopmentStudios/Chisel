@@ -454,6 +454,18 @@ namespace Engine.Rendering
         {
             GraphicsDeviceManager = new GraphicsDeviceManager(Instance);
 
+            ValidDisplayModes = new List<DisplayMode>();
+
+            foreach (var res in GraphicsAdapter.DefaultAdapter.SupportedDisplayModes)
+            {
+                bool active = false;
+                if (res == GraphicsAdapter.DefaultAdapter.CurrentDisplayMode)
+                {
+                    active = true;
+                }
+                ValidDisplayModes.Add(res);
+            }
+
             disableColors.ColorWriteChannels = ColorWriteChannels.Alpha;
 
             WireframeRasterizerState = new RasterizerState();
@@ -475,17 +487,6 @@ namespace Engine.Rendering
             };
             LightmapTextureSamplerState = SamplerState.LinearClamp;
 
-            ValidDisplayModes = new List<DisplayMode>();
-
-            foreach (var res in GraphicsAdapter.DefaultAdapter.SupportedDisplayModes)
-            {
-                bool active = false;
-                if (res == GraphicsAdapter.DefaultAdapter.CurrentDisplayMode)
-                {
-                    active = true;
-                }
-                ValidDisplayModes.Add(res);
-            }
             ShaderQuality = QualityLevel.High;
             ShadowQuality = QualityLevel.High;
             TextureQuality = QualityLevel.High;
@@ -609,7 +610,7 @@ namespace Engine.Rendering
             GreenTexture  = new Texture2D(Instance.GraphicsDevice, 1, 1);
             PurpleTexture = new Texture2D(Instance.GraphicsDevice, 1, 1);
             ErrorTexture = new Texture2D(Instance.GraphicsDevice, 16, 16);
-            ActiveDisplayMode = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode;
+            ActiveDisplayMode = Instance.GraphicsDevice.Adapter.CurrentDisplayMode;
 
             WhiteTexture .SetData(0, new Rectangle(0, 0, 1, 1), new Color[1] { Color.White }, 0, 1);
             DimTexture   .SetData(0, new Rectangle(0, 0, 1, 1), new Color[1] { new Color(200, 200, 200) }, 0, 1);
@@ -849,8 +850,8 @@ namespace Engine.Rendering
 
             PixelSize = new Vector2
             {
-                X = (1f / (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width)),
-                Y = (1f / (GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height))
+                X = (1f / (Width)),
+                Y = (1f / (Height))
             };
         }
 
